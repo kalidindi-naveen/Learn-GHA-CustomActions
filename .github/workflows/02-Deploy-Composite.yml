@@ -50,10 +50,13 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Download Jar
+        id: jar-down
         uses: ./.github/actions/download-artifact-composite
         with:
           name: dist-files
           path: dist
+      - name: Downloadable Jar Name
+        run: echo Downloadable Jar Name ${{steps.jar-down.outputs.file-name}}
       - name: Output contents
         run: ls
       - name: Deploy site

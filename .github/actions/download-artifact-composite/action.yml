@@ -7,11 +7,17 @@ inputs:
   path:
     description: 'Get Artifact Path to Download'
     required: true
+outputs:
+  name: 
+    description: 'Get Artifact Name as Output'
+    value: ${{ steps.build.outputs.file-name}}
 runs:
   using: 'composite'
   steps:
     - name: Get build artifacts
+      id: build
       uses: actions/download-artifact@v4
       with:
         name: ${{ inputs.name }}
         path: ${{ inputs.path }}
+      run: echo 'file-name=${{ inputs.name }}' >> $GITHUB_OUTPUT
