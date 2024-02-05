@@ -1,0 +1,60 @@
+name: Deployment
+on:
+  push:
+    branches:
+      - main
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Load & Cache dependencies
+        uses: ./.github/actions/cache-dependency-composite
+      - name: Lint code
+        run: npm run lint
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Load & Cache dependencies
+        uses: ./.github/actions/cache-dependency-composite
+      - name: Test code
+        id: run-tests
+        run: npm run test
+      - name: Upload & Download dependencies
+        uses: ./.github/actions/upload-download-artifact-composite
+        with:
+          name: test-report
+          path: test.json 
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Load & Cache dependencies
+        uses: ./.github/actions/cache-dependency-composite
+      - name: Build website
+        run: npm run build
+      - name: Upload & Download dependencies
+        uses: ./.github/actions/upload-download-artifact-composite
+        with:
+          name: dist-files
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Upload & Download dependencies
+        uses: ./.github/actions/upload-download-artifact-composite
+        with:
+          name: dist-files
+          path: dist
+      - name: Output contents
+        run: ls
+      - name: Deploy site
+        run: echo "Deploying..."
