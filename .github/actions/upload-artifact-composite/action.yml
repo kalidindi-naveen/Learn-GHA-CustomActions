@@ -1,14 +1,12 @@
 name: 'Upload Artifacts Reusable Flow'
 description: 'Upload Artifact'
 inputs:
-  file-name:
+  name:
     description: 'Get Artifact Name to Upload'
     required: true
-    # default: test-report
-  file-path:
+  path:
     description: 'Get Artifact Path to Upload'
     required: true
-    # default: test.json
 runs:
   using: 'composite'
   steps:

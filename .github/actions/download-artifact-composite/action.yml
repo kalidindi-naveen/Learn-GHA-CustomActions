@@ -1,14 +1,12 @@
 name: 'Download Artifacts Reusable Flow'
 description: 'Download Artifact'
 inputs:
-  file-name-1:
+  name:
     description: 'Get Artifact Name to Download'
     required: true
-    # default: dist-files
-  file-path-1:
+  path:
     description: 'Get Artifact Path to Download'
     required: true
-    # default: dist
 runs:
   using: 'composite'
   steps:
