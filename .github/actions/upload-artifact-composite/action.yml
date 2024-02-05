@@ -13,5 +13,5 @@ runs:
     - name: Upload test report
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ inputs.file-name }}
-        path: ${{ inputs.file-path }}
+        name: ${{ inputs.name }}
+        path: ${{ inputs.path }}
