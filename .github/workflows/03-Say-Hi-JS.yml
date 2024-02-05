@@ -1,0 +1,11 @@
+name: 03.Say-Hi
+on:
+  push:
+    branches:
+      - main
+jobs:
+  Say-Hi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Message on console
+        uses: ./.github/actions/deploy-s3-js

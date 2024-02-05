@@ -1,0 +1,4 @@
+npm init -y
+
+Install these packages in deploy-s3-js to import them in main.js
+npm install @actions/core @actions/github @actions/exec
