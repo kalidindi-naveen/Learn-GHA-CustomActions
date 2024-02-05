@@ -4,11 +4,11 @@ inputs:
   file-name:
     description: 'Get Artifact Name to Upload'
     required: true
-    default: test-report
+    # default: test-report
   file-path:
     description: 'Get Artifact Path to Upload'
     required: true
-    default: test.json
+    # default: test.json
 runs:
   using: 'composite'
   steps:

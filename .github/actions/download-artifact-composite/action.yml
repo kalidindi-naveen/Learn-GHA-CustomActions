@@ -4,11 +4,11 @@ inputs:
   file-name-1:
     description: 'Get Artifact Name to Download'
     required: true
-    default: dist-files
+    # default: dist-files
   file-path-1:
     description: 'Get Artifact Path to Download'
     required: true
-    default: dist
+    # default: dist
 runs:
   using: 'composite'
   steps:
