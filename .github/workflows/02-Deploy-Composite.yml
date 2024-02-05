@@ -1,4 +1,4 @@
-name: Deployment
+name: 02.Deployment
 on:
   push:
     branches:
@@ -23,8 +23,8 @@ jobs:
       - name: Test code
         id: run-tests
         run: npm run test
-      - name: Upload & Download dependencies
-        uses: ./.github/actions/upload-download-artifact-composite
+      - name: Upload Tests
+        uses: ./.github/actions/upload-artifact-composite
         with:
           name: test-report
           path: test.json 
@@ -38,8 +38,8 @@ jobs:
         uses: ./.github/actions/cache-dependency-composite
       - name: Build website
         run: npm run build
-      - name: Upload & Download dependencies
-        uses: ./.github/actions/upload-download-artifact-composite
+      - name: Upload Jar
+        uses: ./.github/actions/upload-artifact-composite
         with:
           name: dist-files
           path: dist
@@ -49,8 +49,8 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
-      - name: Upload & Download dependencies
-        uses: ./.github/actions/upload-download-artifact-composite
+      - name: Download Jar
+        uses: ./.github/actions/download-artifact-composite
         with:
           name: dist-files
           path: dist
