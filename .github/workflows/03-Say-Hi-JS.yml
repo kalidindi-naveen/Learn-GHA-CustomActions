@@ -10,4 +10,5 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Run Message on console
+        continue-on-error: true
         uses: ./.github/actions/deploy-s3-js
