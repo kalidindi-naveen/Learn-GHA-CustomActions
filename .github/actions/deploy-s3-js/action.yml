@@ -1,5 +1,16 @@
 name: 'Deploy to AWS s3'
 description: 'Deploy Static Website to AWS s3'
+inputs:
+  bucket:
+    description: 'The S3 bucket to deploy'
+    required: true
+  bucket-region:
+    description: 'Region of S3 bucket to deploy'
+    required: false
+    default: 'us-east-1'
+  dist-folder:
+    description: 'Folder to deploy'
+    required: true
 runs:
   using: 'node20'
   main: 'main.js'
