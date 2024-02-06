@@ -9,7 +9,7 @@ function run(){
   const bucketRegion = core.getInput('bucket-region',{ required: true });
   const distFolder = core.getInput('dist-folder',{ required: true });
 
-  const s3url=`s3://${s3url}`
+  const s3url=`s3://${bucket}`
   exec.exec(`aws s3 sync ${distFolder} ${s3url} --region ${bucketRegion}`)
 }
 run();
