@@ -65,6 +65,6 @@ jobs:
           ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
           SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
         with:
-          bucket: gha-bkt-1
+          bucket: gha-bkt-2
           bucket-region: us-east-1
           dist-folder: ./dist
