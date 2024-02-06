@@ -1,4 +1,4 @@
-name: 04.Deployment-S3-with-JS 
+name: 05.Deployment-S3-with-Docker
 on:
   push:
     branches:
@@ -67,7 +67,7 @@ jobs:
           aws-region: us-east-1
       - name: Deploy to S3
         id: deploy-to-s3
-        uses: ./.github/actions/deploy-s3-js
+        uses: ./.github/actions/deploy-s3-docker
         with:
           bucket: gha-bkt-2
           bucket-region: us-east-1
